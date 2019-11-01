@@ -1,0 +1,12 @@
+{% extends 'base.template.html' %}
+
+{% load crispy_forms_tags %}
+
+{%block content%}
+<h1>Create New Task</h1>
+<form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{form | crispy}}
+    <input type ="submit" value="Create Item">
+</form>
+{%endblock%}

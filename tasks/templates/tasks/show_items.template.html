@@ -1,0 +1,21 @@
+{% extends 'base.template.html' %}
+
+{%block content%}
+<a href = "{% url "create_item" %}"><h5>Add New Task</h5></a>
+<h1>All Tasks</h1>
+    {% for i in items%}
+        <h2>{{i.name}}</h2>
+        <div>Category: {{i.category}}</div>
+        <ul>
+            {% for t in i.tags.all %}
+            <li>{{t.name}}</li>
+            {%endfor%}
+        </ul>
+        <div>
+            {% if i.photos %}
+                <img src="{{i.photos.url}}" width="250" height="250"/>
+            {% endif %}
+        </div>
+    {%endfor%}
+
+{%endblock%}
