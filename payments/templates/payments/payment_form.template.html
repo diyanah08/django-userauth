@@ -1,0 +1,11 @@
+{% extends 'base.template.html' %}
+
+{%block content%}
+    <h1>Please key in the amount to pay</h1>
+    <form method='GET' action='{% url 'make_payment' %}'>
+        {% csrf_token %}
+        <label>Amount to Pay:</label>
+        <input type='text' name='amount' required/>
+        <input type='submit' value='Proceed to Payment'/>
+    </form>
+{%endblock%}

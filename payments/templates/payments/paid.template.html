@@ -1,0 +1,14 @@
+{% extends 'base.template.html' %}
+
+{%block content%}
+    <p>Amount Payable: ${{amount_in_dollars}}</p>
+    <form method="POST">
+      {% csrf_token %}
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="{{ publishable_key }}"
+              data-description="Make Payment"
+              data-amount="{{amount}}"
+              data-locale="auto"></script>
+      <input type='hidden' name='amount' value='{{amount}}'/>
+    </form>
+{%endblock%}

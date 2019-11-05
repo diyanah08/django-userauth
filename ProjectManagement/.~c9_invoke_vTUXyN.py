@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pyuploadcare.dj',
     'crispy_forms',
     'tasks',
     'accounts',
@@ -52,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'ProjectManagement.urls'
@@ -126,6 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 AUTH_USER_MODEL = "accounts.MyUser"
 
 AUTHENTICATION_BACKENDS = (
@@ -138,10 +139,10 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 LOGIN_URL = '/accounts/login'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     '/var/www/static/',
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -151,10 +152,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STRIPES_PUBLISHABLE_KEY = os.getenv('STRIPES_PUBLISHABLE_KEY')
 STRIPES_SECRET_KEY = os.getenv('STRIPES_SECRET_KEY')
 
-UPLOADCARE_PUBLIC_KEY=os.environ['UPLOADCARE_PUBLIC_KEY']
-UPLOADCARE_SECRET_KEY=os.environ['UPLOADCARE_SECRET_KEY']
-
-UPLOADCARE = {
-    'pub_key': UPLOADCARE_PUBLIC_KEY,
-    'secret':UPLOADCARE_SECRET_KEY
+UPLOADCARE= {
+    'pub_key': UP
 }
