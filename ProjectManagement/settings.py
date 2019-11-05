@@ -26,7 +26,7 @@ SECRET_KEY = 'g9q2*hne835-0r_3gqf8%fwj!6nksrvu1a3vpl#@44axw+e_^&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["nd-project-management.herokuapp.com"]
+ALLOWED_HOSTS = ["nd-project-management.herokuapp.com", "*"]
 
 # ALLOWED_HOSTS = ["*"]
 
