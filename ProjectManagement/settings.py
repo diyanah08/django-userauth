@@ -143,10 +143,9 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 LOGIN_URL = '/accounts/login'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     '/var/www/static/',
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
